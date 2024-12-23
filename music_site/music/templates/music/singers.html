@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block title %}首页 - 音乐网站{% endblock %} {% block content %}
+<div class="header-section">
+    <h1>歌手</h1>
+</div>
+
+    <div class="singer-list">
+        {% for singer in singers %}
+        <div class="singer-item">
+            <a href="{% url 'music:singer_detail' singer.id %}" class="singer-name">{{ singer.name }}</a>
+        </div>
+        {% endfor %}
+    </div>
+{%endblock%}

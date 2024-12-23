@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block title %}首页 - 音乐网站{% endblock %} {% block content %}
+<!-- 页面内容 -->
+<div class="container">
+    <div class="header-section">
+        <h1>欢迎来到音乐世界</h1>
+    </div>
+
+    <!-- 热门歌手展示 -->
+    <div>
+        <h2 class="section-title">热门歌手</h2>
+        <div class="singer-list">
+            {% for singer in top_singers %}
+            <div class="singer-item">
+                <a href="{% url 'music:singer_detail' singer.id %}" class="singer-name">{{ singer.name }}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- 热门歌曲展示 -->
+    <div>
+        <h2 class="section-title">热门歌曲</h2>
+        <ul>
+            {% for song in songs %}
+            <li class="song-title" data-song-url="{{ song.file_path.url }}" data-song-title="{{ song.title }}" data-song-artist="{{ song.artist.name }}">
+
+                   {{ song.title }}<span class="song-artist"> - 歌手:{{ song.artist.name }}</span>
+
+
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

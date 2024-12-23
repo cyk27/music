@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}音乐主页{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom-player.css' %}">
+</head>
+
+<body>
+    <!-- 导航栏部分 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">音乐网站</a>
+            <ul class="navbar-links">
+                <li><a href="{% url 'music:home' %}" class="navbar-link">首页</a></li>
+                <li><a href="{% url 'music:singers'%}" class="navbar-link">歌手</a></li>
+                <li><a href="{% url 'music:song_detail' %}" class="navbar-link">全部歌曲</a></li>
+                <li><a href="#" class="navbar-link">登录</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- 页面内容 -->
+    <div class="container">
+        {% block content %}
+        <!-- 这里是子模板中的内容 -->
+        {% endblock %}
+    </div>
+
+    <!-- 底部播放器 -->
+    <!-- 底部播放器 -->
+    <div class="player-container">
+        <div class="player">
+            <!-- 显示当前播放的歌曲信息 -->
+            <h1 id="player-title">请选择一首歌曲播放</h1>
+            <div class="audio-player">
+                <div class="controls">
+                    <!-- 播放 / 暂停按钮 -->
+                    <button id="play-pause" class="control-btn play-btn"></button>
+
+                    <!-- 进度条容器 -->
+                    <div class="progress-container">
+                        <input type="range" id="progress-bar" class="progress-bar" value="0" max="100">
+                    </div>
+
+                    <!-- 静音按钮 -->
+                    <button id="mute-btn" class="control-btn mute-btn"></button>
+                    <div class="progress-container">
+                        <input type="range" id="volume-bar" class="volume-bar" value="100" max="100">
+                    </div>
+                    <!-- 全屏按钮 -->
+                    <button id="fullscreen-btn" class="control-btn fullscreen-btn"></button>
+                </div>
+
+                <!-- 显示播放时间 -->
+                <div class="time-display">
+                    <span id="current-time">00:00</span> / <span id="duration">00:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'js/play.js' %}"></script>
+
+</body>
+
+</html>

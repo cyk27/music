@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %}首页 - 音乐网站{% endblock %} {% block content %}
+<div class="header-section">
+    <h1>全部歌曲</h1>
+</div>
+<div>
+    <ul>
+        {% for song in songs %}
+        <li class="song-title" data-song-url="{{ song.file_path.url }}" data-song-title="{{ song.title }}" data-song-artist="{{ song.artist.name }}">
+            
+               {{ song.title }}<span class="song-artist"> - 歌手:{{ song.artist.name }}</span>
+            
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{%endblock%}

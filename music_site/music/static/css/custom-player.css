@@ -1,0 +1,137 @@
+/* 底部播放器 */
+
+.player-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 2px solid #FFC0CB;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#player-title {
+    font-size: 1.2em;
+    color: #333;
+    margin-right: 20px;
+    flex-grow: 1;
+    /* 使标题部分占满剩余空间 */
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* 控制元素之间的间距 */
+}
+
+.control-btn {
+    background-color: #FFC0CB;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background-color: #FFB6C1;
+}
+
+.play-btn {
+    background-image: url("/static/img/play.png");
+}
+
+.pause-btn {
+    background-image: url("/static/img/pause.png");
+}
+
+.mute-btn {
+    background-image: url("/static/img/mute.png");
+}
+
+.fullscreen-btn {
+    background-image: url("/static/img/fullscreen.png");
+}
+
+
+/* 进度条容器 */
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* 控制进度条与音量条之间的间距 */
+}
+
+
+/* 进度条样式 */
+
+.progress-bar,
+.volume-bar {
+    width: 200px;
+    /* 调整宽度，使进度条更长 */
+    height: 8px;
+    /* 增加高度，确保进度条看起来更显眼 */
+    background-color: #f0f0f0;
+    border-radius: 50px;
+    /* 圆角使进度条更圆滑 */
+    margin: 0;
+    transition: background 0.3s ease;
+    /* 背景渐变过渡 */
+}
+
+.progress-bar::-webkit-slider-runnable-track,
+.volume-bar::-webkit-slider-runnable-track {
+    background: #FFC0CB;
+    /* 樱花粉色背景 */
+    border-radius: 50px;
+    /* 使轨道更圆滑 */
+}
+
+.progress-bar::-webkit-slider-thumb,
+.volume-bar::-webkit-slider-thumb {
+    background: #FFB6C1;
+    /* 更浅的樱花粉色 */
+    border-radius: 50%;
+    width: 25px;
+    /* 增加滑块的大小 */
+    height: 25px;
+    /* 增加滑块的大小 */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    /* 平滑的缩放效果 */
+}
+
+.progress-bar::-webkit-slider-thumb:hover,
+.volume-bar::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    /* 鼠标悬停时滑块变大 */
+}
+
+
+/* 时间显示 */
+
+.time-display {
+    font-size: 14px;
+    color: #FFC0CB;
+    margin-left: 10px;
+}
